@@ -1,0 +1,356 @@
+<html>
+
+<head>
+    <title>FOW</title>
+    
+    <link rel = "icon" href ="images/applogo.png" type = "image/x-icon">
+</head>
+
+<!-- CSS-CASCADE STYLE SHEET -->
+<style>
+  label {
+    display: block;
+    width: 800px;
+  }
+  table, th, td {
+    border: 1px solid rgb(255, 0, 0);background-color: rgb(26, 243, 232)
+    
+}
+img {
+  border-radius: 50%;
+  align-items: center;
+  margin-left:1%;
+float:left; 
+height:50px;
+width:50px; 
+}
+.img1 {
+  border-radius: 50%;
+  align-items: center;
+margin-right: 80%; 
+height:40px;
+width:40px; 
+}
+</style>
+
+<!-- JAVASCRIPT -->
+<script src="pouchdb-7.3.0.js"></script>
+<script src="myFirstJS.js"></script>
+
+
+<!-- APP:HTML- HYPERTEXT MARKUP LANGUAGE -->
+<img src="images/applogo.png"/>
+<label style ="color:rgb(35, 84, 219);font-size:40;font-weight: bold;">FEELINGS OF THE WORLD</label>
+<br>
+<br>
+<body style="background-color:rgb(255, 166, 0)" onload="fnautoGenerateRecord()">
+    <label style="color:blue;font-size: 20px;">RecordNo:</label>
+    
+    <input style ="background-color: rgb(43, 255, 0);width: 75px;height: 30px ;" id="txtrecordno" disabled placeholder="RecordNo..."  />
+    <br>
+    <label style="color:blue;font-size: 20px;">Person Age:</label>
+    <input onkeydown="return numericOnly(event)" style ="background-color: rgb(43, 255, 0);width: 300px;height: 30px ;" id="txtpersonAge" style="width:400px;height:30px;" placeholder="Person Age..." />
+  
+    <br>
+    <label style="color:blue;font-size: 20px;">Person Name:</label>
+    <input onkeydown="return alphaOnly(event)" style ="background-color: rgb(43, 255, 0);width: 300px;height: 30px ;" id="txtpersonName" style="width:400px;height:30px;" placeholder="Person Name..." />
+  
+    <br>
+    <label style="color:blue;font-size: 20px;">Person Feeling:</label>
+    <select style ="background-color: rgb(43, 255, 0);width: 300px;height: 30px ;" style="width:400px;height:30px;" name="Feeling" id="txtpersonFeeling">
+        <option value = "">Select Feelings...</option>
+        <option value="Sad">Sad</option>
+        <option value="Happy">Happy</option>
+        <option value="Excited">Excited</option>
+        <option value="Depressed">Depressed</option>
+        <option value="Angry">Angry</option>
+      </select>
+    
+  
+    <br>
+    <label style="color:blue;font-size: 20px;">Person Feeling:</label>
+    <select style ="background-color: rgb(43, 255, 0);width: 300px;height: 30px ;" style="width:400px;height:30px;" name="Country" id="txtpersonCountry">
+<option value = "">Select Country...</option>
+<Option value=Afghanistan>Afghanistan</Option>
+<Option value=Aland Islands (Finland)>Aland Islands (Finland)</Option>
+<Option value=Albania>Albania</Option>
+<Option value=Algeria>Algeria</Option>
+<Option value=American Samoa (USA)>American Samoa (USA)</Option>
+<Option value=Andorra>Andorra</Option>
+<Option value=Angola>Angola</Option>
+<Option value=Anguilla (UK)>Anguilla (UK)</Option>
+<Option value=Antigua and Barbuda>Antigua and Barbuda</Option>
+<Option value=Argentina>Argentina</Option>
+<Option value=Armenia>Armenia</Option>
+<Option value=Aruba (Netherlands)>Aruba (Netherlands)</Option>
+<Option value=Australia>Australia</Option>
+<Option value=Austria>Austria</Option>
+<Option value=Azerbaijan>Azerbaijan</Option>
+<Option value=Bahamas>Bahamas</Option>
+<Option value=Bahrain>Bahrain</Option>
+<Option value=Bangladesh>Bangladesh</Option>
+<Option value=Barbados>Barbados</Option>
+<Option value=Belarus>Belarus</Option>
+<Option value=Belgium>Belgium</Option>
+<Option value=Belize>Belize</Option>
+<Option value=Benin>Benin</Option>
+<Option value=Bermuda (UK)>Bermuda (UK)</Option>
+<Option value=Bhutan>Bhutan</Option>
+<Option value=Bolivia>Bolivia</Option>
+<Option value=Bosnia and Herzegovina>Bosnia and Herzegovina</Option>
+<Option value=Botswana>Botswana</Option>
+<Option value=Brazil>Brazil</Option>
+<Option value=British Virgin Islands (UK)>British Virgin Islands (UK)</Option>
+<Option value=Brunei>Brunei</Option>
+<Option value=Bulgaria>Bulgaria</Option>
+<Option value=Burkina Faso>Burkina Faso</Option>
+<Option value=Burma>Burma</Option>
+<Option value=Burundi>Burundi</Option>
+<Option value=Cambodia>Cambodia</Option>
+<Option value=Cameroon>Cameroon</Option>
+<Option value=Canada>Canada</Option>
+<Option value=Cape Verde>Cape Verde</Option>
+<Option value=Caribbean Netherlands (Netherlands)>Caribbean Netherlands (Netherlands)</Option>
+<Option value=Cayman Islands (UK)>Cayman Islands (UK)</Option>
+<Option value=Central African Republic>Central African Republic</Option>
+<Option value=Chad>Chad</Option>
+<Option value=Chile>Chile</Option>
+<Option value=China>China</Option>
+<Option value=Christmas Island (Australia)>Christmas Island (Australia)</Option>
+<Option value=Cocos (Keeling) Islands (Australia)>Cocos (Keeling) Islands (Australia)</Option>
+<Option value=Colombia>Colombia</Option>
+<Option value=Comoros>Comoros</Option>
+<Option value=Cook Islands (NZ)>Cook Islands (NZ)</Option>
+<Option value=Costa Rica>Costa Rica</Option>
+<Option value=Croatia>Croatia</Option>
+<Option value=Cuba>Cuba</Option>
+<Option value=Curacao (Netherlands)>Curacao (Netherlands)</Option>
+<Option value=Cyprus>Cyprus</Option>
+<Option value=Czech Republic>Czech Republic</Option>
+<Option value=Democratic Republic of the Congo>Democratic Republic of the Congo</Option>
+<Option value=Denmark>Denmark</Option>
+<Option value=Djibouti>Djibouti</Option>
+<Option value=Dominica>Dominica</Option>
+<Option value=Dominican Republic>Dominican Republic</Option>
+<Option value=Ecuador>Ecuador</Option>
+<Option value=Egypt>Egypt</Option>
+<Option value=El Salvador>El Salvador</Option>
+<Option value=Equatorial Guinea>Equatorial Guinea</Option>
+<Option value=Eritrea>Eritrea</Option>
+<Option value=Estonia>Estonia</Option>
+<Option value=Ethiopia>Ethiopia</Option>
+<Option value=Falkland Islands (UK)>Falkland Islands (UK)</Option>
+<Option value=Faroe Islands (Denmark)>Faroe Islands (Denmark)</Option>
+<Option value=Federated States of Micronesia>Federated States of Micronesia</Option>
+<Option value=Fiji>Fiji</Option>
+<Option value=Finland>Finland</Option>
+<Option value=France>France</Option>
+<Option value=French Guiana (France)>French Guiana (France)</Option>
+<Option value=French Polynesia (France)>French Polynesia (France)</Option>
+<Option value=Gabon>Gabon</Option>
+<Option value=Gambia>Gambia</Option>
+<Option value=Georgia>Georgia</Option>
+<Option value=Germany>Germany</Option>
+<Option value=Ghana>Ghana</Option>
+<Option value=Gibraltar (UK)>Gibraltar (UK)</Option>
+<Option value=Greece>Greece</Option>
+<Option value=Greenland (Denmark)>Greenland (Denmark)</Option>
+<Option value=Grenada>Grenada</Option>
+<Option value=Guadeloupe (France)>Guadeloupe (France)</Option>
+<Option value=Guam (USA)>Guam (USA)</Option>
+<Option value=Guatemala>Guatemala</Option>
+<Option value=Guernsey (UK)>Guernsey (UK)</Option>
+<Option value=Guinea>Guinea</Option>
+<Option value=Guinea-Bissau>Guinea-Bissau</Option>
+<Option value=Guyana>Guyana</Option>
+<Option value=Haiti>Haiti</Option>
+<Option value=Honduras>Honduras</Option>
+<Option value=Hong Kong (China)>Hong Kong (China)</Option>
+<Option value=Hungary>Hungary</Option>
+<Option value=Iceland>Iceland</Option>
+<Option value=India>India</Option>
+<Option value=Indonesia>Indonesia</Option>
+<Option value=Iran>Iran</Option>
+<Option value=Iraq>Iraq</Option>
+<Option value=Ireland>Ireland</Option>
+<Option value=Isle of Man (UK)>Isle of Man (UK)</Option>
+<Option value=Israel>Israel</Option>
+<Option value=Italy>Italy</Option>
+<Option value=Ivory Coast>Ivory Coast</Option>
+<Option value=Jamaica>Jamaica</Option>
+<Option value=Japan>Japan</Option>
+<Option value=Jersey (UK)>Jersey (UK)</Option>
+<Option value=Jordan>Jordan</Option>
+<Option value=Kazakhstan>Kazakhstan</Option>
+<Option value=Kenya>Kenya</Option>
+<Option value=Kiribati>Kiribati</Option>
+<Option value=Kosovo>Kosovo</Option>
+<Option value=Kuwait>Kuwait</Option>
+<Option value=Kyrgyzstan>Kyrgyzstan</Option>
+<Option value=Laos>Laos</Option>
+<Option value=Latvia>Latvia</Option>
+<Option value=Lebanon>Lebanon</Option>
+<Option value=Lesotho>Lesotho</Option>
+<Option value=Liberia>Liberia</Option>
+<Option value=Libya>Libya</Option>
+<Option value=Liechtenstein>Liechtenstein</Option>
+<Option value=Lithuania>Lithuania</Option>
+<Option value=Luxembourg>Luxembourg</Option>
+<Option value=Macau (China)>Macau (China)</Option>
+<Option value=Macedonia>Macedonia</Option>
+<Option value=Madagascar>Madagascar</Option>
+<Option value=Malawi>Malawi</Option>
+<Option value=Malaysia>Malaysia</Option>
+<Option value=Maldives>Maldives</Option>
+<Option value=Mali>Mali</Option>
+<Option value=Malta>Malta</Option>
+<Option value=Marshall Islands>Marshall Islands</Option>
+<Option value=Martinique (France)>Martinique (France)</Option>
+<Option value=Mauritania>Mauritania</Option>
+<Option value=Mauritius>Mauritius</Option>
+<Option value=Mayotte (France)>Mayotte (France)</Option>
+<Option value=Mexico>Mexico</Option>
+<Option value=Moldov>Moldov</Option>
+<Option value=Monaco>Monaco</Option>
+<Option value=Mongolia>Mongolia</Option>
+<Option value=Montenegro>Montenegro</Option>
+<Option value=Montserrat (UK)>Montserrat (UK)</Option>
+<Option value=Morocco>Morocco</Option>
+<Option value=Mozambique>Mozambique</Option>
+<Option value=Namibia>Namibia</Option>
+<Option value=Nauru>Nauru</Option>
+<Option value=Nepal>Nepal</Option>
+<Option value=Netherlands>Netherlands</Option>
+<Option value=New Caledonia (France)>New Caledonia (France)</Option>
+<Option value=New Zealand>New Zealand</Option>
+<Option value=Nicaragua>Nicaragua</Option>
+<Option value=Niger>Niger</Option>
+<Option value=Nigeria>Nigeria</Option>
+<Option value=Niue (NZ)>Niue (NZ)</Option>
+<Option value=Norfolk Island (Australia)>Norfolk Island (Australia)</Option>
+<Option value=North Korea>North Korea</Option>
+<Option value=Northern Mariana Islands (USA)>Northern Mariana Islands (USA)</Option>
+<Option value=Norway>Norway</Option>
+<Option value=Oman>Oman</Option>
+<Option value=Pakistan>Pakistan</Option>
+<Option value=Palau>Palau</Option>
+<Option value=Palestine>Palestine</Option>
+<Option value=Panama>Panama</Option>
+<Option value=Papua New Guinea>Papua New Guinea</Option>
+<Option value=Paraguay>Paraguay</Option>
+<Option value=Peru>Peru</Option>
+<Option value=Philippines>Philippines</Option>
+<Option value=Pitcairn Islands (UK)>Pitcairn Islands (UK)</Option>
+<Option value=Poland>Poland</Option>
+<Option value=Portugal>Portugal</Option>
+<Option value=Puerto Rico>Puerto Rico</Option>
+<Option value=Qatar>Qatar</Option>
+<Option value=Republic of the Congo>Republic of the Congo</Option>
+<Option value=Reunion (France)>Reunion (France)</Option>
+<Option value=Romania>Romania</Option>
+<Option value=Russia>Russia</Option>
+<Option value=Rwanda>Rwanda</Option>
+<Option value=Saint Barthelemy (France)>Saint Barthelemy (France)</Option>
+<Option value=Saint Helena, Ascension and Tristan da Cunha (UK)>Saint Helena, Ascension and Tristan da Cunha (UK)</Option>
+<Option value=Saint Kitts and Nevis>Saint Kitts and Nevis</Option>
+<Option value=Saint Lucia>Saint Lucia</Option>
+<Option value=Saint Martin (France)>Saint Martin (France)</Option>
+<Option value=Saint Pierre and Miquelon (France)>Saint Pierre and Miquelon (France)</Option>
+<Option value=Saint Vincent and the Grenadines>Saint Vincent and the Grenadines</Option>
+<Option value=Samoa>Samoa</Option>
+<Option value=San Marino>San Marino</Option>
+<Option value=Sao Tom and Principe>Sao Tom and Principe</Option>
+<Option value=Saudi Arabia>Saudi Arabia</Option>
+<Option value=Senegal>Senegal</Option>
+<Option value=Serbia>Serbia</Option>
+<Option value=Seychelles>Seychelles</Option>
+<Option value=Sierra Leone>Sierra Leone</Option>
+<Option value=Singapore>Singapore</Option>
+<Option value=Sint Maarten (Netherlands)>Sint Maarten (Netherlands)</Option>
+<Option value=Slovakia>Slovakia</Option>
+<Option value=Slovenia>Slovenia</Option>
+<Option value=Solomon Islands>Solomon Islands</Option>
+<Option value=Somalia>Somalia</Option>
+<Option value=South Africa>South Africa</Option>
+<Option value=South Korea>South Korea</Option>
+<Option value=South Sudan>South Sudan</Option>
+<Option value=Spain>Spain</Option>
+<Option value=Sri Lanka>Sri Lanka</Option>
+<Option value=Sudan>Sudan</Option>
+<Option value=Suriname>Suriname</Option>
+<Option value=Svalbard and Jan Mayen (Norway)>Svalbard and Jan Mayen (Norway)</Option>
+<Option value=Swaziland>Swaziland</Option>
+<Option value=Sweden>Sweden</Option>
+<Option value=Switzerland>Switzerland</Option>
+<Option value=Syria>Syria</Option>
+<Option value=Taiwan>Taiwan</Option>
+<Option value=Tajikistan>Tajikistan</Option>
+<Option value=Tanzania>Tanzania</Option>
+<Option value=Thailand>Thailand</Option>
+<Option value=Timor-Leste>Timor-Leste</Option>
+<Option value=Togo>Togo</Option>
+<Option value=Tokelau (NZ)>Tokelau (NZ)</Option>
+<Option value=Tonga>Tonga</Option>
+<Option value=Trinidad and Tobago>Trinidad and Tobago</Option>
+<Option value=Tunisia>Tunisia</Option>
+<Option value=Turkey>Turkey</Option>
+<Option value=Turkmenistan>Turkmenistan</Option>
+<Option value=Turks and Caicos Islands (UK)>Turks and Caicos Islands (UK)</Option>
+<Option value=Tuvalu>Tuvalu</Option>
+<Option value=Uganda>Uganda</Option>
+<Option value=Ukraine>Ukraine</Option>
+<Option value=United Arab Emirates>United Arab Emirates</Option>
+<Option value=United Kingdom>United Kingdom</Option>
+<Option value=United States>United States</Option>
+<Option value=United States Virgin Islands (USA)>United States Virgin Islands (USA)</Option>
+<Option value=Uruguay>Uruguay</Option>
+<Option value=Uzbekistan>Uzbekistan</Option>
+<Option value=Vanuatu>Vanuatu</Option>
+<Option value=Vatican City>Vatican City</Option>
+<Option value=Venezuela>Venezuela</Option>
+<Option value=Vietnam>Vietnam</Option>
+<Option value=Wallis and Futuna (France)>Wallis and Futuna (France)</Option>
+<Option value=Western Sahara>Western Sahara</Option>
+<Option value=World>World</Option>
+<Option value=Yemen>Yemen</Option>
+<Option value=Zambia>Zambia</Option>
+<Option value=Zimbabwe>Zimbabwe</Option>
+<select>
+<br><br>
+  <img src="images/Delete.png"  id="btndeleteCheckedRec"   onclick="fnDeleteChkdRec()" title="Delete Checked Record"/> 
+     <br>
+    <br>
+    <br>
+  <br>
+
+    <img src="images/ADD (2).png"  id="btnAdd"   onclick="fnAdd()" title="Add Record"/>
+    <img src="images/find.png"  id="btnShow"   onclick="fnShow()" title="Find Record"/>
+    <img src="images/edit (2).jpg"  id="btnEdit"   onclick="fnEdit()" title="Update Record"/>
+    <img src="images/res (2).jpg"  id="btnReset"   onclick="fnReset()" title="Reset"/>
+        <br>
+        <br>
+        <br>
+    <img src="images/First-icon.png"  id="btnFirst"   onclick="fnFirst()" title="First Record"/>
+    <img src="images/next.png"  id="btnNext"   onclick="fnNext()" title="Next Record"/>
+    <img src="images/previous.png"  id="btnPrevious"   onclick="fnPrevious()" title="Previous Record"/>
+    <img src="images/Last-icon.png"  id="btnLast"   onclick="fnLast()" title="Last Record"/>
+<br><br><br><br>
+<img src="images/showall.png"  id="btnAll"   onclick="fnAllDoc()" title="Show All Records"/>
+
+<br><br><br><br>
+  <table id="tblPersonFeeling">
+    <tr>
+      <th>Check</th>
+      <th>Recordno</th>
+      <th>Person Age</th>
+      <th>Person Name</th>
+      <th>Person Feeling</th>
+      <th>Person Country</th>
+    </tr>
+
+  </table>
+
+  
+</body>
+      
+</html>
